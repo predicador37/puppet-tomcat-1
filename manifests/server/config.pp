@@ -23,7 +23,7 @@ define tomcat::server::config(
 
   # User customized JVM options
   file {"${basedir}/bin/setenv-local.sh":
-    replace => true,
+    ensure  => 'file',
     content => template('tomcat/setenv-local.sh.erb'),
     owner   => 'root',
     group   => $group,
